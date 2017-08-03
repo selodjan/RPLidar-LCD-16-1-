@@ -1,4 +1,4 @@
-//LCD 16x1 Karakter TC1601A V1.1 Edit
+//LCD Edit
 /*
  * RoboPeak RPLIDAR Arduino Example
  * This example shows the easy and common way to fetch data from an RPLIDAR
@@ -55,6 +55,7 @@ void setup() {
   lidar.begin(Serial);
     // set up the LCD's number of columns and rows:
   lcd.begin(8, 2); //Tek Satır LCD
+  delay(1000);
   pinMode(RPLIDAR_MOTOR, OUTPUT);
 }
 
@@ -68,8 +69,10 @@ void loop() {
  
     //perform data processing here...
       lcd.print(int(angle));//açı değeri lcd'ye yazdırılıyor.
+      lcd.print((char) 223);
       lcd.setCursor(0,1);
       lcd.print(int(distance/10));//açı değerindeki mesafe cm olarak lcd'ye yazdırılıyor.
+      lcd.print("cm");
       delay(100);
 
   } else {
